@@ -45,7 +45,7 @@ public class AutomatedGrouping {
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel();
-        panel.setBackground(Color.BLUE);
+        panel.setBackground(Color.GRAY);
 
         
     // And JPanel needs to be added to the JFrame itself!
@@ -113,8 +113,8 @@ public class AutomatedGrouping {
 
         get_groups_button.addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent e) { 
-             group1_label.setOpaque(true);
-             group1_label.setBackground(Color.white);
+             
+             group1_label.setText("GROUP 1");
              group2_label.setOpaque(true);
              group2_label.setBackground(Color.white);
              group3_label.setBackground(Color.white);
@@ -155,21 +155,21 @@ public class AutomatedGrouping {
          import_button.setBounds(500,85,140,30);
       input_data_field.setBounds(50,85,400,30);
       input_data_label.setBounds(51,55,400,30);
-      group1_label.setBounds(30,200,150,50);
-      group2_label.setBounds(30,275,150,50);
-      group3_label.setBounds(30,350,150,50);
-      group4_label.setBounds(30,425,150,50);
-      group5_label.setBounds(30,500,150,50);
-      group6_label.setBounds(30,575,150,50);
-      group7_label.setBounds(230,200,150,50);
-      group8_label.setBounds(230,275,150,50);
-      group9_label.setBounds(230,350,150,50);
-      group10_label.setBounds(230,425,150,50);
-      group11_label.setBounds(230,500,150,50);
-      group12_label.setBounds(230,575,150,50);
-      group13_label.setBounds(430,200,150,50);
-      group14_label.setBounds(430,275,150,50);
-      group15_label.setBounds(430,350,150, 50);
+      group1_label.setBounds(30,200,150,30);
+      group2_label.setBounds(30,275,150,30);
+      group3_label.setBounds(30,350,150,30);
+      group4_label.setBounds(30,425,150,30);
+      group5_label.setBounds(30,500,150,30);
+      group6_label.setBounds(30,575,150,30);
+      group7_label.setBounds(230,200,150,30);
+      group8_label.setBounds(230,275,150,30);
+      group9_label.setBounds(230,350,150,30);
+      group10_label.setBounds(230,425,150,30);
+      group11_label.setBounds(230,500,150,30);
+      group12_label.setBounds(230,575,150,30);
+      group13_label.setBounds(430,200,150,30);
+      group14_label.setBounds(430,275,150,30);
+      group15_label.setBounds(430,350,150, 30);
   // Add button to JPanel
         panel.add(exit_button);
         panel.add(get_groups_button);
