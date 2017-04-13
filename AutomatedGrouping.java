@@ -75,6 +75,9 @@ public class AutomatedGrouping {
         JLabel group13_label = new JLabel(" ");
         JLabel group14_label = new JLabel(" ");
         JLabel group15_label = new JLabel(" ");
+        JLabel group16_label = new JLabel(" ");
+        JLabel group17_label = new JLabel(" ");
+        JLabel group18_label = new JLabel(" ");
 
        // Font font = new Font("Courier", Font.BOLD,14);
         //input_data_label.setFont(font);
@@ -94,6 +97,9 @@ public class AutomatedGrouping {
         group13_label.setPreferredSize(new Dimension(200, 200));
         group14_label.setPreferredSize(new Dimension(200, 200));
         group15_label.setPreferredSize(new Dimension(200, 200));
+        group16_label.setPreferredSize(new Dimension(200, 200));
+        group17_label.setPreferredSize(new Dimension(200, 200));
+        group18_label.setPreferredSize(new Dimension(200, 200));
 
       
         
@@ -117,16 +123,15 @@ public class AutomatedGrouping {
              group1_label.setText("GROUP 1");
              group2_label.setOpaque(true);
              group2_label.setBackground(Color.white);
-             group3_label.setBackground(Color.white);
              group3_label.setOpaque(true);
-             group4_label.setBackground(Color.white);
+             group3_label.setBackground(Color.white);
              group4_label.setOpaque(true);
+             group4_label.setBackground(Color.white);
              group5_label.setOpaque(true);
              group5_label.setBackground(Color.white);
-             group6_label.setBackground(Color.white);
              group6_label.setOpaque(true);
-             group7_label.setBackground(Color.white);
-             group7_label.setOpaque(true);
+             group6_label.setBackground(Color.white);
+             group7_label.setText("GROUP 2");
              group8_label.setOpaque(true);
              group8_label.setBackground(Color.white);
              group9_label.setOpaque(true);
@@ -137,12 +142,18 @@ public class AutomatedGrouping {
              group11_label.setOpaque(true);
              group12_label.setOpaque(true);
              group12_label.setBackground(Color.white);
-             group13_label.setBackground(Color.white);
-             group13_label.setOpaque(true);
+             group13_label.setText("GROUP 3");
              group14_label.setBackground(Color.white);
              group14_label.setOpaque(true);
              group15_label.setBackground(Color.white);
              group15_label.setOpaque(true);
+             group16_label.setBackground(Color.white);
+             group16_label.setOpaque(true);
+             group17_label.setBackground(Color.white);
+             group17_label.setOpaque(true);
+             group18_label.setBackground(Color.white);
+             group18_label.setOpaque(true);
+
           get_groups_button_pressed();
 
          } 
@@ -150,26 +161,30 @@ public class AutomatedGrouping {
     //set panel layout to null
         panel.setLayout(null);
 // setting items coordinates on GUI
-           exit_button.setBounds(350,700,85,30);
+          exit_button.setBounds(350,700,85,30);
      get_groups_button.setBounds(500,115,140,30);
          import_button.setBounds(500,85,140,30);
       input_data_field.setBounds(50,85,400,30);
       input_data_label.setBounds(51,55,400,30);
       group1_label.setBounds(30,200,150,30);
-      group2_label.setBounds(30,275,150,30);
-      group3_label.setBounds(30,350,150,30);
-      group4_label.setBounds(30,425,150,30);
-      group5_label.setBounds(30,500,150,30);
-      group6_label.setBounds(30,575,150,30);
-      group7_label.setBounds(230,200,150,30);
-      group8_label.setBounds(230,275,150,30);
-      group9_label.setBounds(230,350,150,30);
-      group10_label.setBounds(230,425,150,30);
-      group11_label.setBounds(230,500,150,30);
-      group12_label.setBounds(230,575,150,30);
-      group13_label.setBounds(430,200,150,30);
-      group14_label.setBounds(430,275,150,30);
-      group15_label.setBounds(430,350,150, 30);
+      group2_label.setBounds(30,240,150,30);
+      group3_label.setBounds(30,280,150,30);
+      group4_label.setBounds(30,320,150,30);
+      group5_label.setBounds(30,360,150,30);
+      group6_label.setBounds(30,400,150,30);
+      group7_label.setBounds(190,200,150,30);
+      group8_label.setBounds(190,240,150,30);
+      group9_label.setBounds(190,280,150,30);
+      group10_label.setBounds(190,320,150,30);
+      group11_label.setBounds(190,360,150,30);
+      group12_label.setBounds(190,400,150,30);
+      group13_label.setBounds(350,200,150,30);
+      group14_label.setBounds(350,240,150,30);
+      group15_label.setBounds(350,280,150,30);
+      group16_label.setBounds(350,320,150,30);
+      group17_label.setBounds(350,360,150,30);
+      group18_label.setBounds(350,400,150,30);
+
   // Add button to JPanel
         panel.add(exit_button);
         panel.add(get_groups_button);
@@ -191,6 +206,9 @@ public class AutomatedGrouping {
         panel.add(group13_label);
         panel.add(group14_label);
         panel.add(group15_label);
+        panel.add(group16_label);
+        panel.add(group17_label);
+        panel.add(group18_label);
 
     }
     // event handler methods
