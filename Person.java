@@ -4,6 +4,7 @@ public class Person {
 	private String name;
 	private String lastName;
 	private HashSet<Integer> availablity;
+	private HashSet<Person.name, Integer> availablityMatch;
 	private String[] languages;
 	
 	public void set_name(String new_name){
@@ -17,16 +18,17 @@ public class Person {
 	}
 	public String get_lastName(){
 		return lastName;
-	}public void set_availablity(HashSet<Integer> new_availablity){
+	}
+	public void set_availablity(HashSet<Integer> new_availablity){
 		availablity = new_availablity;
 	}
 	public HashSet<Integer> get_availablity(){
 		return availablity;
 	}
-	public void availablityMatch(HashSet<Person.name, Integer> new_availablityMatch){
+	public void set_availablityMatch(HashSet<Person.name, Integer> new_availablityMatch){
 		availablityMatch = new_availablityMatch;
 	}
-	public HashSet<Person.name, Integer> availablityMatch(){
+	public HashSet<Person.name, Integer> get_availablityMatch(){
 		return availablityMatch;
 	}
 	public void set_languages(String[] new_languages){
