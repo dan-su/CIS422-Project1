@@ -11,6 +11,7 @@ import java.io.File;
 
 /*
  * Talaba Pogrebinsky
+ * Daniel Su
  */
 
 public class AutomatedGrouping {
