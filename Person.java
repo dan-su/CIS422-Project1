@@ -23,6 +23,12 @@ public class Person {
 	public HashSet<Integer> get_availablity(){
 		return availablity;
 	}
+	public void availablityMatch(HashSet<Person.name, Integer> new_availablityMatch){
+		availablityMatch = new_availablityMatch;
+	}
+	public HashSet<Person.name, Integer> availablityMatch(){
+		return availablityMatch;
+	}
 	public void set_languages(String[] new_languages){
 		languages = new_languages;
 	}
