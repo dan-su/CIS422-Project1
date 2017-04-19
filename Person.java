@@ -1,10 +1,11 @@
 import java.util.HashSet;
+import java.util.HashMap;
 
 public class Person {
 	private String name;
 	private String lastName;
 	private HashSet<Integer> availablity;
-	private HashSet<Person.name, Integer> availablityMatch;
+	private HashMap<String, Integer> availablityMatch;
 	private String[] languages;
 	
 	public void set_name(String new_name){
@@ -25,10 +26,11 @@ public class Person {
 	public HashSet<Integer> get_availablity(){
 		return availablity;
 	}
-	public void set_availablityMatch(HashSet<Person.name, Integer> new_availablityMatch){
+	public void set_availablityMatch(HashMap<String, Integer> new_availablityMatch){
+		//set the % match with person's name
 		availablityMatch = new_availablityMatch;
 	}
-	public HashSet<Person.name, Integer> get_availablityMatch(){
+	public HashMap<String, Integer> get_availablityMatch(){
 		return availablityMatch;
 	}
 	public void set_languages(String[] new_languages){
