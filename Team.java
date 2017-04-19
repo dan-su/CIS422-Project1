@@ -1,4 +1,4 @@
-public class Team {
+public class Team extends Person{
 	private Person[] members;
 	private Integer quality;
 	private String diversity;
@@ -18,7 +18,7 @@ public class Team {
 	public Integer get_quality(){
 		return quality;
 	}
-	public void set_diversity(Integer new_diversity){
+	public void set_diversity(String new_diversity){
 		//sets the diversity aspect of the team 
 		diversity = new_diversity;
 	}
