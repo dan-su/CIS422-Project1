@@ -8,8 +8,6 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import java.io.File;
 
-import com.opencsv.CSVReader;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -44,19 +42,6 @@ public class AutomatedGrouping {
 	}
 	private static int get_array_size(){
 		return array_size;
-	}
-	public static void CSV_parser(String filePath) throws FileNotFoundException{
-		CSVReader reader = new CSVReader(new FileReader(filePath));
-		String [] nextLine;
-		try {
-			while ((nextLine = reader.readNext()) != null) {
-				// nextLine[] is an array of values from the line
-				System.out.println(nextLine[0] + nextLine[1] + "etc...");
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
 	public static void createAndShowGUI() {

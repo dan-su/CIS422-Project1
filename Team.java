@@ -25,7 +25,7 @@ public class Team extends Person{
 	public String get_diversity(){
 		return diversity;
 	}
-	public void get_teamCapn(Person new_teamCapn){
+	public void set_teamCapn(Person new_teamCapn){
 		//sets the team "captain", which is the person with the lowest availablityMatch value
 		teamCapn = new_teamCapn;
 	}
