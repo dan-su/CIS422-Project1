@@ -1,31 +1,37 @@
 import com.opencsv.CSVReader;
 
+import java.util.List;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class dataParser {
-	//takes in fname, lname, (availiblityfor m-f), languages 
+public class dataParser extends Person{
+	//takes in fname, lname, languages,(availiblityfor m-f),  
 	
 	public static void CSV_parser(String filePath) throws FileNotFoundException{
-		CSVReader reader = new CSVReader(new FileReader(filePath));
-		String [] nextLine;
+		
+		CSVReader reader = new CSVReader(new FileReader(filePath), ',', '"', 1);
 		
 		try {
-			while ((nextLine = reader.readNext()) != null) {
-				// nextLine[] is an array of values from the line
+			List<String[]> myList = reader.readAll();
+			for (String[] item: myList){
 				Person student = new Person();
-				student.set_name(nextLine[0]);
-				student.set_lastName(nextLine[1]);
-				//student.set_availablity(nextLine[2]);//need to change this structure 
-				System.out.println(nextLine[0] + nextLine[1] + "etc...");
-				
+				student.set_name(item[1]);
+				student.set_lastName(item[2]);
+				student.set_languages(item[3]);
+				//slipt string for time and langauage
+				for(String e: item ){
+
+				System.out.println(e);
+
+				}
 			}
+			reader.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
 	}
 	
 	
@@ -36,10 +42,10 @@ public class dataParser {
 		
 		try {
 			CSV_parser(inputFile);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (FileNotFoundException e) {	
 			e.printStackTrace();
 		}
+		input.close();
 	}
 	
 }

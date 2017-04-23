@@ -5,8 +5,9 @@ public class Person {
 	private String name;
 	private String lastName;
 	private HashSet<Integer> availablity;
+	private int totalAvailablity;
 	private HashMap<String, Integer> availablityMatch;
-	private String[] languages;
+	private String languages;
 	
 	public void set_name(String new_name){
 		name = new_name;
@@ -29,13 +30,19 @@ public class Person {
 	public void set_availablityMatch(HashMap<String, Integer> new_availablityMatch){
 		availablityMatch = new_availablityMatch;
 	}
+	public void set_totalAvailablity(int new_totalAvailablity){
+		totalAvailablity = new_totalAvailablity;
+	}
+	public int get_totalAvailablity(){
+		return totalAvailablity;
+	}
 	public HashMap<String, Integer> get_availablityMatch(){
 		return availablityMatch;
 	}
-	public void set_languages(String[] new_languages){
-		languages = new_languages;
+	public void set_languages(String new_language){
+		languages = new_language;
 	}
-	public String[] get_languages(){
+	public String get_languages(){
 		return languages;
 	}
 }
