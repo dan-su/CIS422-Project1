@@ -27,19 +27,21 @@ public class dataParser {
 
 //				if we don't want to the library to be added
 				int counter = 0;
-				String [][] times = new String [][];
+				String [][] times = new String [5][];
 				for (int i=4; i < 9; i++){
 					counter += StringUtils.countMatches(item[i], "-");
+					times [i][0] = item[i].split(";");
 				}
 				student.set_totalAvailablity(counter);
 				System.out.println(student.get_totalAvailablity());
 				//slipt string for time and langauage
-				String[] times = item[4].split(";");
+
 				for(String e: item ){
 					System.out.println(e);
 				}
 			}
 			reader.close();
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
