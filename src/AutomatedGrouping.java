@@ -7,11 +7,9 @@ import javax.swing.AbstractButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import java.io.File;
-<<<<<<< HEAD
 
-=======
 import com.opencsv.CSVReader;
->>>>>>> b41aac571d8f2cfdd491a37d4d271fde8170511d
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -63,22 +61,9 @@ public class AutomatedGrouping {
 	private static int get_array_size(){
 		return array_size;
 	}
-<<<<<<< HEAD
+
 	
 	public static void createAndShowGUI() {
-=======
-	public static void CSV_parser(String filePath) throws FileNotFoundException{
-		CSVReader reader = new CSVReader(new FileReader(filePath));
-		String [] nextLine;
-		try {
-			while ((nextLine = reader.readNext()) != null) {
-				// nextLine[] is an array of values from the line
-				System.out.println(nextLine[0] + nextLine[1] + "etc...");
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	public static void CreateAndShowGroupsPage(){
 		JFrame frame2 = new JFrame("Groups");
@@ -97,9 +82,9 @@ public class AutomatedGrouping {
 		
 	}
 	public static void createAndShowFirstPage() {
->>>>>>> b41aac571d8f2cfdd491a37d4d271fde8170511d
+
 	//Create and set up the window.
-		JFrame frame = new JFrame("Automated Grouping");
+		final JFrame frame = new JFrame("Automated Grouping");
 		frame.setSize(800, 800);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -117,7 +102,7 @@ public class AutomatedGrouping {
 		JButton exit_button = new JButton("done");
 		JButton import_button = new JButton("import text file");
 		JButton view_button = new JButton("View Groups");// enter the class size and team sizes
-		JTextField input_data_field = new JTextField(400);
+		final JTextField input_data_field = new JTextField(400);
 		JTextField input_class_size_field = new JTextField(400);
 		JLabel input_class_size_label = new JLabel("Enter class size below ");
 		JLabel user_messages_label = new JLabel("messages to user displayed here"); // user messages

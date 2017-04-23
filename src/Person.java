@@ -1,5 +1,5 @@
-import java.util.HashSet;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class Person {
 	private String name;
@@ -27,7 +27,6 @@ public class Person {
 		return availablity;
 	}
 	public void set_availablityMatch(HashMap<String, Integer> new_availablityMatch){
-		//set the % match with person's name
 		availablityMatch = new_availablityMatch;
 	}
 	public HashMap<String, Integer> get_availablityMatch(){
