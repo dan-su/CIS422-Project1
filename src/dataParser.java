@@ -21,20 +21,21 @@ public class dataParser {
 				student.set_name(item[1]);
 				student.set_lastName(item[2]);
 				student.set_languages(item[3]);
-				System.out.println(student.get_lastName());
-				System.out.println(student.get_name());
-				System.out.println(student.get_languages());
+				//System.out.println(student.get_lastName());
+				//System.out.println(student.get_name());
+				//System.out.println(student.get_languages());
 
+//				if we don't want to the library to be added
 				int counter = 0;
-				for( int i=0; i<item[4].length(); i++ ) {
-				    if( item[4].charAt(i) == '-' ) {
-				        counter++;
-				    } 
+				String [][] times = new String [][];
+				for (int i=4; i < 9; i++){
+					counter += StringUtils.countMatches(item[i], "-");
 				}
-				int count = StringUtils.countMatches(item[4], "-");
+				student.set_totalAvailablity(counter);
+				System.out.println(student.get_totalAvailablity());
 				//slipt string for time and langauage
 				String[] times = item[4].split(";");
-				for(String e: times ){
+				for(String e: item ){
 					System.out.println(e);
 				}
 			}

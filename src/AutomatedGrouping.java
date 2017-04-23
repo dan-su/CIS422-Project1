@@ -116,12 +116,12 @@ public class AutomatedGrouping {
 		JButton import_button = new JButton("import text file");
 		JButton view_button = new JButton("View Groups");// enter the class size and team sizes
 		final JTextField input_data_field = new JTextField(400);
-		JTextField input_class_size_field = new JTextField(400);
+		final JTextField input_class_size_field = new JTextField(400);
 		JLabel input_class_size_label = new JLabel("Enter class size below ");
 		JLabel user_messages_label = new JLabel("messages to user displayed here"); // user messages
-		JTextField user_messages_field = new JTextField(400);
+		final JTextField user_messages_field = new JTextField(400);
 		JLabel group_size_label = new JLabel("Enter size of groups "); // user messages
-		JTextField group_size_field = new JTextField(400);
+		final JTextField group_size_field = new JTextField(400);
 
 		//JLabel
 		JLabel input_data_label = new JLabel("Type the name of the textfile below: ");

@@ -15,10 +15,10 @@ public class match{
 
 		//}
 	}
-	public static void pickTeamCapn(List<Object> leastMatched, int numOfTeam){
+	public static void pickTeamCapn(List leastMatched, int numOfTeam){
 		for(int i = 0; i < numOfTeam; i++){
 			Team team = new Team ();
-			team.set_teamCapn(leastMatched[0]);
+			//team.set_teamCapn(leastMatched[0]);
 			//access team 
 			//team.set_teamCapn(leastMatched[i]);
 		}
