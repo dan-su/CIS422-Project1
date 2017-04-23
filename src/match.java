@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class match extends dataParser{
+public class match{
 
 	public static void availablitySort(List[] pplList){
 		
@@ -15,8 +15,10 @@ public class match extends dataParser{
 
 		//}
 	}
-	public static void pickTeamCapn(List[] leastMatched, int numOfTeam){
+	public static void pickTeamCapn(List<Object> leastMatched, int numOfTeam){
 		for(int i = 0; i < numOfTeam; i++){
+			Team team = new Team ();
+			team.set_teamCapn(leastMatched[0]);
 			//access team 
 			//team.set_teamCapn(leastMatched[i]);
 		}

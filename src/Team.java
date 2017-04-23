@@ -1,4 +1,4 @@
-public class Team extends Person{
+public class Team{
 	private Person[] members;
 	private Integer quality;
 	private String diversity;
