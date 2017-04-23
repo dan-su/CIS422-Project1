@@ -26,10 +26,12 @@ public class AutomatedGrouping {
 	 * this method should be invoked from the
 	 * event-dispatching thread.
 	 */
+	private static boolean import_groups = false;
 	private static int array_size;
 	private static String[] names;
-	public static final int num_of_groups = 10;
+	//public static final int num_of_groups = 10;
 	public static final int num_of_students = 30;
+	public static int number_of_groups = 0;
 	public static int size_of_groups = 0;
 	public static String[] group1 = new String[size_of_groups];
 	public String[] group2 = new String[size_of_groups];
@@ -48,6 +50,7 @@ public class AutomatedGrouping {
 	public String[] group15= new String[size_of_groups];
 
 
+
 	private static void set_array_size(int size){
 		array_size = size;
 	}
@@ -62,10 +65,8 @@ public class AutomatedGrouping {
 		return array_size;
 	}
 
-	
-	public static void createAndShowGUI() {
-	}
 	public static void CreateAndShowGroupsPage(){
+
 		JFrame frame2 = new JFrame("Groups");
 		frame2.setSize(1000,1000);
 		frame2.setLocationRelativeTo(null);
@@ -75,9 +76,21 @@ public class AutomatedGrouping {
 
 		frame2.getContentPane().add(panel2);
 		frame2.setVisible(true);
-		if(isEmpty(group1)){
-			System.out.println("group 1 is null!");
-		}
+		
+	switch(number_of_groups){
+		case 0:
+			System.out.println("group size is zero?");
+			break;
+		case 1:
+			//make class number of text boxes and populate with class
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		default:
+			break;
+	}
 		
 		
 	}
@@ -127,8 +140,13 @@ public class AutomatedGrouping {
 		public void actionPerformed(ActionEvent e) { 
 			String input_data = input_data_field.getText();
 		  import_button_pressed(input_data);
+		  	if(import_groups == true){
+		  		user_messages_field.setText("now press get groups");
+		   }else{
+			user_messages_field.setText("unable to open file, please try again.");
+			}
 		 } 
-		} );
+	} );
 
 		view_button.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -139,9 +157,16 @@ public class AutomatedGrouping {
 
 		get_groups_button.addActionListener(new ActionListener() { 
 		public void actionPerformed(ActionEvent e) { 
-			get_groups_button_pressed();
+			if(input_class_size_field.getText().equals("")){
+				user_messages_field.setText("please enter class size");
+			}else if(group_size_field.getText().equals("")){
+					user_messages_field.setText("please enter a group size");
+				}else{
+					size_of_groups = Integer.parseInt(group_size_field.getText());
+					get_groups_button_pressed(Integer.parseInt(input_class_size_field.getText()), Integer.parseInt(group_size_field.getText()));
+					user_messages_field.setText("number of groups will be: " + number_of_groups + " please press the view groups button");
+				}
 			}
-
 		});
 
 		  
@@ -161,17 +186,19 @@ public class AutomatedGrouping {
 
 	input_data_label.setBounds(51,55,400,30);
 
-	user_messages_label.setBounds(50,130,340,30);
+	user_messages_label.setBounds(51,330,340,30);
 
-	user_messages_field.setBounds(50,150, 400, 400);
+	user_messages_field.setBounds(50,360, 700, 30);
 
-	input_class_size_label.setBounds(50,600,200,30);
+	user_messages_field.setText("Type filename into file text field and press 'import data' button ");
 
-	input_class_size_field.setBounds(87,640,50,30);
+	input_class_size_label.setBounds(50,150,200,30);
 
-	group_size_label.setBounds(300,600,200,30);
+	input_class_size_field.setBounds(87,190,50,30);
 
-	group_size_field.setBounds(330,640, 50, 30);
+	group_size_label.setBounds(300,150,200,30);
+
+	group_size_field.setBounds(330,190, 50, 30);
 	 
 
   // Add button to JPanel
@@ -191,11 +218,12 @@ public class AutomatedGrouping {
 	}
 	// event handler methods
 	public static void import_button_pressed(String input){
+
 		 
 		try{
 		 File file = new File(input);
 		Scanner fileScanner = new Scanner(file);
-
+		import_groups = true;
 		 int num_of_lines = 0;
 	for(int i = 0; fileScanner.hasNextLine(); i++){
 				num_of_lines++;
@@ -203,23 +231,24 @@ public class AutomatedGrouping {
 		}
 		set_array_size(num_of_lines);
 		 String[] names = new String[num_of_lines];
-		 //giving terminal output to confirm import 
-		 if(fileScanner != null){
-			System.out.println("import succesfull!");
-		}
+
+		
 	   fileScanner.close();
 	   fileScanner = null;
 	   fileScanner = new Scanner(file);
+
 		String line;
 		
 	for(int i = 0; fileScanner.hasNextLine(); i++){
 	   line = fileScanner.nextLine();
 	   names[i] = line;
+	   System.out.println(line);
 	}
 	set_array(names);
    // String line = fileScanner.nextLine();
 	 //   names += line;
 	}catch(Exception ex){
+		import_groups = false;
 		System.out.println("unable to open file!");
 		}
 
@@ -230,16 +259,20 @@ public class AutomatedGrouping {
 	}
 
 
-	public static void get_groups_button_pressed(){
-
-		String[] names;
-		names = get_array();
-		 size_of_groups = get_array_size()/num_of_groups;
-
-
-		System.out.println("got groups successfully"); 
-		// may need to add some sort of check to insure groups initialized but i figured if the program makes it here then it was successful
+	public static void get_groups_button_pressed(int class_size, int group_size){
+		// retrieve all data from file
+		String[] data = new String[get_array_size()];
 		
+		data = get_array();
+
+		 number_of_groups = class_size/group_size;
+
+		 if(isEmpty(names))
+		 import_groups = false;
+		else{
+			import_groups = true;
+		}
+
 	   }
 	   public static void view_button_pressed(Frame frame){
 	    frame.setVisible(false);
@@ -252,7 +285,7 @@ public class AutomatedGrouping {
 	   	return false;
 	   }
 	   public static void main(String[] args) {
-		Person student = new Person();
+		//Person student = new Person();
 		//Schedule a job for the event-dispatching thread:
 		//creating and showing this application's GUI.
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -260,8 +293,6 @@ public class AutomatedGrouping {
 				createAndShowFirstPage();
 			}
 		});
-		System.out.println("pressed view button!"); // should open a new activity
-		System.out.println("group 1[0]: " + group1[0]);
 	}
 	
 }
