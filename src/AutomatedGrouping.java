@@ -2,18 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Scanner;
-import javax.swing.AbstractButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
-import java.io.File;
-
-import com.opencsv.CSVReader;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 
 /*
  * Talaba Pogrebinsky
@@ -26,44 +15,11 @@ public class AutomatedGrouping {
 	 * this method should be invoked from the
 	 * event-dispatching thread.
 	 */
-	private static boolean import_groups = false;
-	private static int array_size;
+	public static boolean import_groups = false;
 	private static String[] names;
-	//public static final int num_of_groups = 10;
 	public static final int num_of_students = 30;
 	public static int number_of_groups = 0;
 	public static int size_of_groups = 0;
-	public static String[] group1 = new String[size_of_groups];
-	public String[] group2 = new String[size_of_groups];
-	public String[] group3 = new String[size_of_groups];
-	public String[] group4 = new String[size_of_groups];
-	public String[] group5 = new String[size_of_groups];
-	public String[] group6 = new String[size_of_groups];
-	public String[] group7 = new String[size_of_groups];
-	public String[] group8 = new String[size_of_groups];
-	public String[] group9 = new String[size_of_groups];
-	public String[] group10= new String[size_of_groups];
-	public String[] group11= new String[size_of_groups];
-	public String[] group12= new String[size_of_groups];
-	public String[] group13= new String[size_of_groups];
-	public String[] group14= new String[size_of_groups];
-	public String[] group15= new String[size_of_groups];
-
-
-
-	private static void set_array_size(int size){
-		array_size = size;
-	}
-	private static void set_array(String new_names[]){
-		 names = new String[array_size];
-		 names = new_names;
-	}
-	private static String[] get_array(){
-		return names;
-	}
-	private static int get_array_size(){
-		return array_size;
-	}
 
 	public static void CreateAndShowGroupsPage(){
 
@@ -76,23 +32,6 @@ public class AutomatedGrouping {
 
 		frame2.getContentPane().add(panel2);
 		frame2.setVisible(true);
-		
-	switch(number_of_groups){
-		case 0:
-			System.out.println("group size is zero?");
-			break;
-		case 1:
-			//make class number of text boxes and populate with class
-			break;
-		case 2:
-			break;
-		case 3:
-			break;
-		default:
-			break;
-	}
-		
-		
 	}
 	public static void createAndShowFirstPage() {
 
@@ -190,7 +129,7 @@ public class AutomatedGrouping {
 
 	user_messages_field.setBounds(50,360, 700, 30);
 
-	user_messages_field.setText("Type filename into file text field and press 'import data' button ");
+	user_messages_field.setText("Type filepath and name into file text field and press 'import data' button ");
 
 	input_class_size_label.setBounds(50,150,200,30);
 
@@ -221,37 +160,14 @@ public class AutomatedGrouping {
 
 		 
 		try{
-		 File file = new File(input);
-		Scanner fileScanner = new Scanner(file);
+		
+		 dataParser.CSV_parser(input);
+		
 		import_groups = true;
-		 int num_of_lines = 0;
-	for(int i = 0; fileScanner.hasNextLine(); i++){
-				num_of_lines++;
-				fileScanner.nextLine();
+		}catch(Exception e){
+			System.out.println("file parsing problem");
 		}
-		set_array_size(num_of_lines);
-		 String[] names = new String[num_of_lines];
-
-		
-	   fileScanner.close();
-	   fileScanner = null;
-	   fileScanner = new Scanner(file);
-
-		String line;
-		
-	for(int i = 0; fileScanner.hasNextLine(); i++){
-	   line = fileScanner.nextLine();
-	   names[i] = line;
-	   System.out.println(line);
-	}
-	set_array(names);
-   // String line = fileScanner.nextLine();
-	 //   names += line;
-	}catch(Exception ex){
-		import_groups = false;
-		System.out.println("unable to open file!");
-		}
-
+	
 	}
 
 	public static void exit_button_pressed(){
@@ -261,9 +177,9 @@ public class AutomatedGrouping {
 
 	public static void get_groups_button_pressed(int class_size, int group_size){
 		// retrieve all data from file
-		String[] data = new String[get_array_size()];
+
 		
-		data = get_array();
+	
 
 		 number_of_groups = class_size/group_size;
 
