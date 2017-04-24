@@ -1,13 +1,17 @@
 import java.awt.List;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
 public class match{
 
-	public static void availablitySort(List[] pplList){
+	public static void availablitySort(ArrayList[] pplList){
+		String ini[] = { "One", "Two", "Three", "One", "Two", "Three" };
 		
-		//Collections.sort(pplList);
+		ArrayList list = new ArrayList(Arrays.asList(ini));
+		Collections.sort(list);
 	}
 	public static void matching(List[] pplList){
 		//for(int i = 0; i < pplList; i++){
@@ -16,8 +20,9 @@ public class match{
 		//}
 	}
 	public static void pickTeamCapn(List leastMatched, int numOfTeam){
+		
 		for(int i = 0; i < numOfTeam; i++){
-			Team team = new Team ();
+			Team team = new Team();
 			//team.set_teamCapn(leastMatched[0]);
 			//access team 
 			//team.set_teamCapn(leastMatched[i]);

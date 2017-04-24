@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class dataParser {
-	//takes in fname, lname, languages,(availiblityfor m-f),  
+	//takes in first name, last name, languages,(totalAvailablity for m-f),  
 	
 	public static void CSV_parser(String filePath) throws FileNotFoundException{
 		
@@ -21,24 +21,23 @@ public class dataParser {
 				student.set_name(item[1]);
 				student.set_lastName(item[2]);
 				student.set_languages(item[3]);
-				//System.out.println(student.get_lastName());
-				//System.out.println(student.get_name());
-				//System.out.println(student.get_languages());
 
-//				if we don't want to the library to be added
+				System.out.println(item[4]);
+				System.out.println(item[5]);
 				int counter = 0;
-				String [][] times = new String [5][];
-				for (int i=4; i < 9; i++){
+				String[] days = new String[];
+				List<String[]> weekTime = null;
+				
+				//The loop is set for nine, because the time data starts at item[4] and have 5 time slots
+				for (int i = 4; i < 9; i++){
 					counter += StringUtils.countMatches(item[i], "-");
-					times [i][0] = item[i].split(";");
+					for(int j = 0; j < item[i].length(); j++){
+						days = item[i].split(";"); 
+					}
+					weekTime.add(days);
 				}
+				
 				student.set_totalAvailablity(counter);
-				System.out.println(student.get_totalAvailablity());
-				//slipt string for time and langauage
-
-				for(String e: item ){
-					System.out.println(e);
-				}
 			}
 			reader.close();
 			
