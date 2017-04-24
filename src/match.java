@@ -7,11 +7,12 @@ import java.util.Scanner;
 
 public class match{
 
-	public static void availablitySort(ArrayList[] pplList){
-		String ini[] = { "One", "Two", "Three", "One", "Two", "Three" };
+	public static void availablitySort(List[] pplList){
+		 
 		
-		ArrayList list = new ArrayList(Arrays.asList(ini));
-		Collections.sort(list);
+		int[] pplTotAvab = new int[pplList.length];
+		Arrays.sort(pplTotAvab);
+		
 	}
 	public static void matching(List[] pplList){
 		//for(int i = 0; i < pplList; i++){
