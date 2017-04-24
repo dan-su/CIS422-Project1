@@ -13,7 +13,7 @@ public class dataParser {
 	public static void CSV_parser(String filePath) throws FileNotFoundException{
 		
 		CSVReader reader = new CSVReader(new FileReader(filePath), ',', '"', 1);
-		
+		System.out.println("testing!");
 		try {
 			List<String[]> pplList = reader.readAll();
 			for (String[] item: pplList){
@@ -30,7 +30,7 @@ public class dataParser {
 				String [][] times = new String [5][];
 				for (int i=4; i < 9; i++){
 					counter += StringUtils.countMatches(item[i], "-");
-					times [i][0] = item[i].split(";");
+					//times [i][0] = item[i].split(";");
 				}
 				student.set_totalAvailablity(counter);
 				System.out.println(student.get_totalAvailablity());
@@ -43,6 +43,7 @@ public class dataParser {
 			reader.close();
 			
 		} catch (IOException e) {
+			System.out.println("inside parser");
 			e.printStackTrace();
 		}
 	}
