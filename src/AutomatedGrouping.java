@@ -16,11 +16,12 @@ public class AutomatedGrouping {
 	 * event-dispatching thread.
 	 */
 	public static boolean import_groups = false;
-	private static String[] names;
 	public static final int num_of_students = 30;
 	public static int number_of_groups = 0;
 	public static int size_of_groups = 0;
-
+	public static int remainder = 0;
+	public boolean is_remainder = false;
+	
 	public static void CreateAndShowGroupsPage(){
 
 		JFrame frame2 = new JFrame("Groups");
@@ -28,7 +29,7 @@ public class AutomatedGrouping {
 		frame2.setLocationRelativeTo(null);
 		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel panel2 = new JPanel();
-		panel2.setBackground(Color.BLACK);
+		panel2.setBackground(Color.ORANGE);
 
 		frame2.getContentPane().add(panel2);
 		frame2.setVisible(true);
@@ -65,9 +66,6 @@ public class AutomatedGrouping {
 		//JLabel
 		JLabel input_data_label = new JLabel("Type the name of the textfile below: ");
 		
-
-
-	
 	//action listeners
 		exit_button.addActionListener(new ActionListener() { 
 		public void actionPerformed(ActionEvent e) { 
@@ -82,17 +80,17 @@ public class AutomatedGrouping {
 		  	if(import_groups == true){
 		  		user_messages_field.setText("now press get groups");
 		   }else{
-			user_messages_field.setText("unable to open file, please try again.");
-			}
-		 } 
-	} );
+			   user_messages_field.setText("unable to open file, please try again.");
+				}
+		 	} 
+		 } );
 
 		view_button.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				view_button_pressed(frame);
 				//will open a new activity
 			}
-		});
+		 });
 
 		get_groups_button.addActionListener(new ActionListener() { 
 		public void actionPerformed(ActionEvent e) { 
@@ -129,7 +127,7 @@ public class AutomatedGrouping {
 
 	user_messages_field.setBounds(50,360, 700, 30);
 
-	user_messages_field.setText("Type filepath and name into file text field and press 'import data' button ");
+	user_messages_field.setText("Type filepath and name into file text field ex: </Users/<username>/Desktop/test.csv> and press 'import data' button ");
 
 	input_class_size_label.setBounds(50,150,200,30);
 
@@ -157,17 +155,12 @@ public class AutomatedGrouping {
 	}
 	// event handler methods
 	public static void import_button_pressed(String input){
-
-		 
 		try{
-		
 		 dataParser.CSV_parser(input);
-		
 		import_groups = true;
 		}catch(Exception e){
 			System.out.println("file parsing problem");
 		}
-	
 	}
 
 	public static void exit_button_pressed(){
@@ -177,18 +170,15 @@ public class AutomatedGrouping {
 
 	public static void get_groups_button_pressed(int class_size, int group_size){
 		// retrieve all data from file
-
-		
-	
-
-		 number_of_groups = class_size/group_size;
-
-		 if(isEmpty(names))
-		 import_groups = false;
-		else{
-			import_groups = true;
+		int mod_remain = class_size % group_size;
+		if(mod_remain > 0){
+			remainder = mod_remain;
+			
 		}
-
+		
+		number_of_groups = (class_size/group_size);
+		
+		 
 	   }
 	   public static void view_button_pressed(Frame frame){
 	    frame.setVisible(false);
@@ -201,7 +191,6 @@ public class AutomatedGrouping {
 	   	return false;
 	   }
 	   public static void main(String[] args) {
-		//Person student = new Person();
 		//Schedule a job for the event-dispatching thread:
 		//creating and showing this application's GUI.
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -210,6 +199,5 @@ public class AutomatedGrouping {
 			}
 		});
 	}
-	
 }
 
