@@ -6,12 +6,12 @@
 /AutomatedGrouping$4.class
 /AutomatedGrouping$5.class
 /AutomatedGrouping.class
-/DataParser.class
+/Classroom.class
 /Person.class
 /Team.class
 /com/
+/dataParser.class
 /match.class
 /sample.txt
 /test.csv
-/dataParser.class
-/Classroom.class
+/Match.class

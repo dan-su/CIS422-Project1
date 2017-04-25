@@ -18,6 +18,7 @@ public class dataParser {
 		try {
 			List<String[]> rawInput = reader.readAll();
 			Classroom room = new Classroom();
+			List<Person> temp = new ArrayList<Person>();
 			for (String[] item: rawInput){
 				Person student = new Person();
 				student.set_name(item[1]);
@@ -44,8 +45,9 @@ public class dataParser {
 				}
 				
 				student.set_totalAvailablity(counter);
-				room.set_roster();
+				temp.add(student);
 			}
+			room.set_roster(temp);
 			reader.close();
 		} catch (IOException e) {
 			System.out.println("inside parser");

@@ -4,16 +4,16 @@ public class Team{
 	private String diversity;
 	private Person teamCapn;
 	
-	public void set_members(Person[] new_members){
+	public void set_members(Person new_members){
 		//sets all members of the team
-		members = new_members;
+		this.members = new_members;
 	}
-	public Person[] get_members(){
+	public Person get_members(){
 		return members;
 	}
 	public void set_quality(Integer new_quality){
 		//sets the guality of the team, which is based off the average of sum of members' availablityMatch
-		quality = new_quality;
+		this.quality = new_quality;
 	}
 	public Integer get_quality(){
 		return quality;
@@ -27,7 +27,7 @@ public class Team{
 	}
 	public void set_teamCapn(Person new_teamCapn){
 		//sets the team "captain", which is the person with the lowest availablityMatch value
-		teamCapn = new_teamCapn;
+		this.teamCapn = new_teamCapn;
 	}
 	public Person get_teamCapn(){
 		return teamCapn;

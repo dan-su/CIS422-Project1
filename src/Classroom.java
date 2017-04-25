@@ -1,11 +1,13 @@
+import java.util.List;
+
 public class Classroom {
-	private Person[] roster;
+	private List<Person> roster;
 	
-	public void set_roster(Person[] new_roster){
+	public void set_roster(List<Person> new_roster){
 		//sets every person of the team
 		roster = new_roster;
 	}
-	public Person[] set_roster(){
+	public List<Person> get_roster(){
 		return roster;
 	}
 }
