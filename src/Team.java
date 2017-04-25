@@ -4,15 +4,16 @@ public class Team{
 	private String diversity;
 	private Person teamCapn;
 	
-	public void set_members(Person new_members){
+	public void set_members(Person[] new_members){
 		//sets all members of the team
 		this.members = new_members;
 	}
-	public Person get_members(){
+	public Person[] get_members(){
 		return members;
 	}
 	public void set_quality(Integer new_quality){
-		//sets the guality of the team, which is based off the average of sum of members' availablityMatch
+		//sets the quality of the team, which is based off the 
+		//avg of sum of members' availablityMatch
 		this.quality = new_quality;
 	}
 	public Integer get_quality(){

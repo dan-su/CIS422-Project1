@@ -1,22 +1,22 @@
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 
 
 public class Person implements Comparator<Person>, Comparable<Person>{
 	private String name;
 	private String lastName;
-	private HashSet<Integer> availablity;
+	private List<String[]> availablity;
 	private Integer totalAvailablity;
 	private HashMap<String, Integer> availablityMatch;
 	private String languages;
-	
-	Person(){}
-	
-	Person(String n, int a){
-		name = n;
-		totalAvailablity = a;
-	}
+
+//	Uncomment for testing availablitySort
+//	Person(){}
+//	Person(String n, int a){
+//		name = n;
+//		totalAvailablity = a;
+//	}
 	
 	public void set_name(String new_name){
 		this.name = new_name;
@@ -30,10 +30,10 @@ public class Person implements Comparator<Person>, Comparable<Person>{
 	public String get_lastName(){
 		return lastName;
 	}
-	public void set_availablity(HashSet<Integer> new_availablity){
+	public void set_availablity(List<String[]> new_availablity){
 		this.availablity = new_availablity;
 	}
-	public HashSet<Integer> get_availablity(){
+	public List<String[]> get_availablity(){
 		return availablity;
 	}
 	public void set_availablityMatch(HashMap<String, Integer> new_availablityMatch){

@@ -28,45 +28,41 @@ public class dataParser {
 				System.out.println(item[4]);
 				System.out.println(item[5]);
 				int counter = 0;
-				String[] days;
-				List<String[][]> weekTime = new ArrayList<String[][]>();
+				String[] days = null;
+				List<String[]> weekTime = new ArrayList<String[]>();
 				
-				//The loop is set for nine, because the time data starts at item[4] and have 5 time slots
+				//The loop is set for nine, because the time data starts at item[4] w/ 5 time slots
 				for (int i = 4; i < 9; i++){
 					counter += StringUtils.countMatches(item[i], "-");
-
 					for(int j = 0; j < item[i].length(); j++){
 						days = item[i].split(";"); 
 					}
-					//weekTime.addAll(days);
-
-					//times [i][0] = item[i].split(";");
-
+					weekTime.add(days);
 				}
-				
 				student.set_totalAvailablity(counter);
+				student.set_availablity(weekTime);
 				temp.add(student);
 			}
 			room.set_roster(temp);
 			reader.close();
 		} catch (IOException e) {
-			System.out.println("inside parser");
 			e.printStackTrace();
 		}
 	}
 
-
-	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
-		System.out.println("Enter file :");
-		String inputFile = input.next(); 
-		
-		try {
-			CSV_parser(inputFile);
-		} catch (FileNotFoundException e) {	
-			e.printStackTrace();
-		}
-		input.close();
-	}
-	
+//	Uncomment for testing
+//	public static void main(String[] args) {
+//		Scanner input = new Scanner(System.in);
+//		System.out.println("Enter file :");
+//		String inputFile = input.next(); 
+//		
+//		try {
+//			CSV_parser(inputFile);
+//			Match.matching(pplList);
+//		} catch (FileNotFoundException e) {	
+//			e.printStackTrace();
+//		}
+//		input.close();
+//	}
+//	
 }
