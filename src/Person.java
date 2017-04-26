@@ -2,7 +2,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
-
 public class Person implements Comparator<Person>, Comparable<Person>{
 	private String name;
 	private String lastName;
