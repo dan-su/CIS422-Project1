@@ -1,6 +1,4 @@
 import com.opencsv.CSVReader;
-import org.apache.commons.lang3.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.io.FileNotFoundException;
@@ -31,7 +29,8 @@ public class dataParser {
 				
 				//The loop is set for nine, because the time data starts at item[4] w/ 5 time slots
 				for (int i = 4; i < 9; i++){
-					counter += StringUtils.countMatches(item[i], "-");
+					// changed counter += StringUtils.countMatches(item[i], "-");
+					 counter += item[i].length() - item[i].replace("-", "").length();
 					for(int j = 0; j < item[i].length(); j++){
 						days = item[i].split(";"); 
 					}
