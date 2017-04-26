@@ -42,17 +42,16 @@ public class dataParser {
 				temp.add(student);
 			}
 			room.set_roster(temp);
-<<<<<<< HEAD
+
 			Match.availablitySort(temp);
 			for (int i = 0; i < temp.size(); i++){
 				System.out.printf("Person: %s, time: %d\n", temp.get(i).get_name(), temp.get(i).get_totalAvailablity());
-=======
+			}
 			for(int i = 0; i < temp.size(); i++){
 				System.out.println(temp.get(i).get_name() + " " + temp.get(i).get_availablity());
->>>>>>> 5de96a76fb4fd6e81a1277b7a3bdb3fee8426a90
 			}
 			reader.close();
-		} catch (IOException e) {
+			} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
@@ -60,20 +59,18 @@ public class dataParser {
 //	Uncomment for testing
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-<<<<<<< HEAD
+
 		System.out.println("Enter file :");
-=======
+
 	System.out.println("Enter file :");
->>>>>>> 5de96a76fb4fd6e81a1277b7a3bdb3fee8426a90
+
 		String inputFile = input.next(); 
 		
 		try {
 			CSV_parser(inputFile);
-<<<<<<< HEAD
-			//Match.availablitySort(pplList);
-=======
+
 			//Match.matching(pplList);
->>>>>>> 5de96a76fb4fd6e81a1277b7a3bdb3fee8426a90
+
 		} catch (FileNotFoundException e) {	
 			e.printStackTrace();
 		}
