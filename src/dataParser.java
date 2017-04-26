@@ -44,6 +44,9 @@ public class dataParser {
 				temp.add(student);
 			}
 			room.set_roster(temp);
+			for(int i = 0; i < temp.size(); i++){
+				System.out.println(temp.get(i).get_name() + " " + temp.get(i).get_availablity());
+			}
 			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -51,18 +54,18 @@ public class dataParser {
 	}
 
 //	Uncomment for testing
-//	public static void main(String[] args) {
-//		Scanner input = new Scanner(System.in);
-//		System.out.println("Enter file :");
-//		String inputFile = input.next(); 
-//		
-//		try {
-//			CSV_parser(inputFile);
-//			Match.matching(pplList);
-//		} catch (FileNotFoundException e) {	
-//			e.printStackTrace();
-//		}
-//		input.close();
-//	}
-//	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+	System.out.println("Enter file :");
+		String inputFile = input.next(); 
+		
+		try {
+			CSV_parser(inputFile);
+			//Match.matching(pplList);
+		} catch (FileNotFoundException e) {	
+			e.printStackTrace();
+		}
+		input.close();
+	}
+	
 }
