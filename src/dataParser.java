@@ -25,8 +25,6 @@ public class dataParser {
 				student.set_lastName(item[2]);
 				student.set_languages(item[3]);
 
-				System.out.println(item[4]);
-				System.out.println(item[5]);
 				int counter = 0;
 				String[] days = null;
 				List<String[]> weekTime = new ArrayList<String[]>();
@@ -44,6 +42,10 @@ public class dataParser {
 				temp.add(student);
 			}
 			room.set_roster(temp);
+			Match.availablitySort(temp);
+			for (int i = 0; i < temp.size(); i++){
+				System.out.printf("Person: %s, time: %d\n", temp.get(i).get_name(), temp.get(i).get_totalAvailablity());
+			}
 			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -51,18 +53,18 @@ public class dataParser {
 	}
 
 //	Uncomment for testing
-//	public static void main(String[] args) {
-//		Scanner input = new Scanner(System.in);
-//		System.out.println("Enter file :");
-//		String inputFile = input.next(); 
-//		
-//		try {
-//			CSV_parser(inputFile);
-//			Match.matching(pplList);
-//		} catch (FileNotFoundException e) {	
-//			e.printStackTrace();
-//		}
-//		input.close();
-//	}
-//	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter file :");
+		String inputFile = input.next(); 
+		
+		try {
+			CSV_parser(inputFile);
+			//Match.availablitySort(pplList);
+		} catch (FileNotFoundException e) {	
+			e.printStackTrace();
+		}
+		input.close();
+	}
+	
 }

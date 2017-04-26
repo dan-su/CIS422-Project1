@@ -2,7 +2,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
-
 public class Person implements Comparator<Person>, Comparable<Person>{
 	private String name;
 	private String lastName;
@@ -12,11 +11,11 @@ public class Person implements Comparator<Person>, Comparable<Person>{
 	private String languages;
 
 //	Uncomment for testing availablitySort
-//	Person(){}
-//	Person(String n, int a){
-//		name = n;
-//		totalAvailablity = a;
-//	}
+	Person(){}
+	Person(String n, int a){
+		name = n;
+		totalAvailablity = a;
+	}
 	
 	public void set_name(String new_name){
 		this.name = new_name;
