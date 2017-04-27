@@ -40,16 +40,17 @@ public class dataParser {
 					System.out.println(Arrays.deepToString(days));
 					weekTime.add(days);
 				}
+				System.out.println(counter);
 				student.set_totalAvailablity(counter);
 				student.set_availablity(weekTime);
 				temp.add(student);
 			}
 			reader.close();
 			room.set_roster(temp);
-
+			
 			Match.availablitySort(temp);
 			Match.pickTeamCapn(AutomatedGrouping.number_of_groups);
-
+			System.out.println(temp.size());
 			} catch (IOException e) {
 			e.printStackTrace();
 		}
