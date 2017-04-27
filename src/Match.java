@@ -11,7 +11,7 @@ import java.util.Iterator;
 public class Match {
 	private static List<Person> leastMatched;
 	private static List<Person> teamCapn;
-	private static List<Team> suggestedT;
+	private static List<Team> suggestedT = new ArrayList<Team>();
 
 	public static void availablitySort(List<Person> inputList){
 		Collections.sort(inputList, new Person());
@@ -30,7 +30,6 @@ public class Match {
 
 		for(int i = 0; i < leastMatched.size(); i++){
 			p0 = leastMatched.get(i);
-			System.out.printf("------------------%s %s\n",  p0.get_name(), p0.get_lastName());
 			for(int j = 1; j < leastMatched.size()-1; j++){
 				p1 = leastMatched.get(j);
 
@@ -67,9 +66,28 @@ public class Match {
 			leastMatched.remove(teamCapn.get(j));
 		}
 		
+		for(Team s : suggestedT){
+			HashMap.Entry<String, Integer> maxEntry = null;
+			System.out.println(s.get_teamCapn().get_name());
+			Person[] tmpMemb = new Person[AutomatedGrouping.size_of_groups];
+			for(int k = 0; k < AutomatedGrouping.size_of_groups-1; k++){
+				for (HashMap.Entry<String, Integer> entry : s.get_teamCapn().get_availablityMatch().entrySet()){
+					if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0 || !s.set_members();.get_availablityMatch().containsKey(maxEntry)){
+						maxEntry = entry;
+					}
+				}
+				System.out.println(maxEntry.getValue() + " "+ maxEntry.getKey());
+				Person tm = new Person();
+				tm.get_name() 
+				tmpMemb[k] = leastMatched.indexOf(maxEntry.getKey());
+				maxEntry = null;
+			}
+		}
+		 
 		return suggestedT;
 		
 	}
+	
 	public static void pickTeamCapn(int numOfTeam){
 		Person[] temp = new Person[numOfTeam];
 		
@@ -78,15 +96,8 @@ public class Match {
 			temp[i] = leastMatched.get(i);
 			team.set_teamCapn(temp[i]);
 			suggestedT.add(team);
-			//System.out.printf("%s, %s\n", temp[i].get_name(), temp[i].get_lastName());
-			//System.out.println(temp[i].get_totalAvailablity());
 		}
-	
 		teamCapn = new ArrayList<Person>(leastMatched);
-
-//		for(Person tp : leastMatched){
-//			System.out.printf("%s, %s, %d\n", tp.get_name(), tp.get_lastName(), tp.get_totalAvailablity());
-//		}
 	}
 
 }

@@ -49,7 +49,8 @@ public class dataParser {
 			room.set_roster(temp);
 			
 			Match.availablitySort(temp);
-			Match.pickTeamCapn(AutomatedGrouping.number_of_groups);
+			Match.pickTeamCapn(5);
+			//AutomatedGrouping.number_of_groups
 			Match.assemeblyTeam();
 			System.out.printf("End!! Count of ppl: %d\n", temp.size());
 //			for(Person d : temp){
