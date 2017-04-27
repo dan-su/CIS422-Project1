@@ -71,6 +71,7 @@ public class Match {
 			leastMatched.remove(teamCapn.get(j));
 		}
 		
+<<<<<<< HEAD
 		for(int l = 0; l < AutomatedGrouping.number_of_groups; l++){
 			Person[] tmpMemb = new Person[leastMatched.size()];
 			for(int k = 0; k <leastMatched.size(); k++){
@@ -80,6 +81,23 @@ public class Match {
 					System.out.println(leastMatched.get(k).get_name());
 					leastMatched.remove(leastMatched.get(k));
 				}
+=======
+		for(Team s : suggestedT){
+			HashMap.Entry<String, Integer> maxEntry = null;
+			System.out.println(s.get_teamCapn().get_name());
+			Person[] tmpMemb = new Person[AutomatedGrouping.size_of_groups];
+			for(int k = 0; k < AutomatedGrouping.size_of_groups-1; k++){
+				for (HashMap.Entry<String, Integer> entry : s.get_teamCapn().get_availablityMatch().entrySet()){
+					if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0){
+						maxEntry = entry;
+					}
+				}
+				System.out.println(maxEntry.getValue() + " "+ maxEntry.getKey());
+				Person tm = new Person();
+				tm.get_name(); 
+				tmpMemb[k] = leastMatched.indexOf(maxEntry.getKey());
+				maxEntry = null;
+>>>>>>> 5e069dac567aeaa88ba55c8cba83e204b0e96a59
 			}
 			//Set the people that match to the team
 			suggestedT.get(l).set_members(tmpMemb);
