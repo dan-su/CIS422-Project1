@@ -24,7 +24,7 @@ public class dataParser {
 				student.set_name(item[1]);
 				student.set_lastName(item[2]);
 				student.set_languages(item[3]);
-				System.out.println(item[1]);
+				//System.out.println(item[1]);
 				
 				int counter = 0;
 				String[] days = null;
@@ -37,10 +37,10 @@ public class dataParser {
 					for(int j = 0; j < days.length; j++){
 						days[j] = days[j].substring(0, 2);
 					}
-					System.out.println(Arrays.deepToString(days));
+					//System.out.println(Arrays.deepToString(days));
 					weekTime.add(days);
 				}
-				System.out.println(counter);
+				//System.out.println(counter);
 				student.set_totalAvailablity(counter);
 				student.set_availablity(weekTime);
 				temp.add(student);
@@ -49,8 +49,12 @@ public class dataParser {
 			room.set_roster(temp);
 			
 			Match.availablitySort(temp);
-			Match.pickTeamCapn(AutomatedGrouping.number_of_groups);
-			System.out.println(temp.size());
+			Match.pickTeamCapn(5);
+			System.out.printf("End!! Count of ppl: %d", temp.size());
+//			for(Person tp : temp){
+//				System.out.println(tp.get_name());
+//				System.out.println(tp.get_totalAvailablity());
+//			}
 			} catch (IOException e) {
 			e.printStackTrace();
 		}

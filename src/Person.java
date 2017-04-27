@@ -11,11 +11,11 @@ public class Person implements Comparator<Person>, Comparable<Person>{
 	private String languages;
 
 //	Uncomment for testing availablitySort
-	Person(){}
-	Person(String n, int a){
-		name = n;
-		totalAvailablity = a;
-	}
+//	Person(){}
+//	Person(String n, int a){
+//		name = n;
+//		totalAvailablity = a;
+//	}
 	
 	public void set_name(String new_name){
 		this.name = new_name;
