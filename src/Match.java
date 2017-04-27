@@ -72,13 +72,13 @@ public class Match {
 			Person[] tmpMemb = new Person[AutomatedGrouping.size_of_groups];
 			for(int k = 0; k < AutomatedGrouping.size_of_groups-1; k++){
 				for (HashMap.Entry<String, Integer> entry : s.get_teamCapn().get_availablityMatch().entrySet()){
-					if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0 || !s.set_members();.get_availablityMatch().containsKey(maxEntry)){
+					if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0){
 						maxEntry = entry;
 					}
 				}
 				System.out.println(maxEntry.getValue() + " "+ maxEntry.getKey());
 				Person tm = new Person();
-				tm.get_name() 
+				tm.get_name(); 
 				tmpMemb[k] = leastMatched.indexOf(maxEntry.getKey());
 				maxEntry = null;
 			}

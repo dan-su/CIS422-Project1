@@ -2,7 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileReader;
+
 import javax.swing.JFrame;
+
+import com.opencsv.CSVReader;
 
 /*
  * Talaba Pogrebinsky
@@ -16,7 +20,7 @@ public class AutomatedGrouping {
 	 * event-dispatching thread.
 	 */
 	public static boolean import_groups = false;
-	public static final int num_of_students = 30;
+	public static int num_of_students = 0;
 	public static int number_of_groups = 0;
 	public static int size_of_groups = 0;
 	public static int remainder = 0;
@@ -24,13 +28,40 @@ public class AutomatedGrouping {
 
 	public static void CreateAndShowGroupsPage(){
 		JFrame frame2 = new JFrame("Groups");
-		frame2.setSize(1000,1000);
+		frame2.setSize(1400,1400);
 		frame2.setLocationRelativeTo(null);
 		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame2.setLayout(new GridLayout(0, 1));
 		JPanel panel2 = new JPanel();
-		panel2.setBackground(Color.ORANGE);
+		panel2.setBackground(Color.BLACK);
 
 		frame2.getContentPane().add(panel2);
+		//frame2.setLayout(new GridLayout(0, 1));
+		int count = 1;
+	
+        JLabel[] labels = new JLabel[num_of_students];
+        panel2.setLayout(null);
+		 for (int i = 0; i < number_of_groups; i++) {
+
+             for (int j = 0 ;j < size_of_groups; j++)
+             {     
+                
+                     String name = "samples";
+                     labels[i] = new JLabel();
+                     labels[i].setBackground(Color.white);
+                     labels[i].setOpaque(true); 
+                     labels[i].setBounds(((j*100)+200),((i*40)+200),80,20);
+                     if(i == 0){
+                    	 name = "Group:" + " " + String.valueOf(count);
+                    	 count++;
+                     }
+                     labels[i].setText(name);                        
+                     panel2.add(labels[i]);
+
+             
+          }
+		 }
+                 
 		frame2.setVisible(true);
 	}
 	public static void createAndShowFirstPage() {
@@ -168,8 +199,12 @@ public class AutomatedGrouping {
 	// event handler methods
 	public static void import_button_pressed(String input){
 		try{
-			dataParser.CSV_parser(input);
+			//dataParser.CSV_parser(input);
+			CSVReader reader = new CSVReader(new FileReader(input), ',', '"', 1);
+			System.out.println(reader.readAll());
+			reader.close();
 			import_groups = true;
+			System.out.println("hello moto");
 		}catch(Exception e){
 			System.out.println("file parsing problem");
 		}
@@ -187,12 +222,14 @@ public class AutomatedGrouping {
 		// ex size = 46 teamsize =3, we will get 14 groups of 3 and 1 group 4
 		number_of_groups = 0;
 		remainder = 0;
+		num_of_students = 0;
 		System.out.println("pressed get groups");
 		int mod_remain = class_size % group_size;
 		if(mod_remain > 0){
 			remainder = mod_remain;
 		}
 		number_of_groups = (class_size/group_size);
+		num_of_students = class_size;
 	}
 	public static void view_button_pressed(Frame frame){
 		frame.setVisible(false);

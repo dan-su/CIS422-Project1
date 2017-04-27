@@ -1,6 +1,5 @@
 import com.opencsv.CSVReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,6 +13,7 @@ public class dataParser {
 	public static void CSV_parser(String filePath) throws FileNotFoundException{
 		
 		CSVReader reader = new CSVReader(new FileReader(filePath), ',', '"', 1);
+		System.out.println(reader.getLinesRead());
 
 		try {
 			List<String[]> rawInput = reader.readAll();
