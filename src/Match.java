@@ -14,6 +14,7 @@ public class Match {
 		//for(dint i = 0; i < pplList.; i++){
 		//pplList[0]
 		//}
+		
 	}
 
 	public static void pickTeamCapn(int numOfTeam){

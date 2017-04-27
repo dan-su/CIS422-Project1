@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-import org.apache.commons.lang3.StringUtils;
 
 public class dataParser {
 	//takes in first name, last name, languages,(totalAvailablity for m-f),  
@@ -33,51 +32,24 @@ public class dataParser {
 				
 				//The loop is set for nine, because the time data starts at item[4] w/ 5 time slots
 				for (int i = 4; i < 9; i++){
-					//counter += StringUtils.countMatches(item[i], "-");
 					counter += item[i].length() - item[i].replace("-", "").length();
 					days = item[i].split(";");
 					for(int j = 0; j < days.length; j++){
-						//system.out.println(days[j]);
 						days[j] = days[j].substring(0, 2);
-						//System.out.println(days[j]);
 					}
-					System.out.println();
-					//System.out.println(days[i-4]);
-
 					System.out.println(Arrays.deepToString(days));
-						
-					//System.out.println(days[0]);
 					weekTime.add(days);
 				}
 				student.set_totalAvailablity(counter);
-//				for(String[] dy : weekTime){	
-//					System.out.println(dy);
-//					for(int k =0; k < dy.length; k++){
-//						System.out.println(dy[k]);
-//					}
-//				}
-				
-//				days[j] = days[j].substring(0, 2);
-//				//System.out.println(item[j]);
-//				System.out.println(days[j]);
-//				System.out.println(days[j].substring(0, 2));
-//				System.out.println(days[j]);
-				
-				//student.set_availablity(weekTime);
+				student.set_availablity(weekTime);
 				temp.add(student);
 			}
 			reader.close();
 			room.set_roster(temp);
 
 			Match.availablitySort(temp);
-			for (int i = 0; i < temp.size(); i++){
-				System.out.printf("Person: %s, time: %d\n", temp.get(i).get_name(), temp.get(i).get_totalAvailablity());
-				//System.out.println(temp.get(i).get_availablity().toString());
-			}
-//			for(int i = 0; i < temp.size(); i++){
-//				System.out.println(temp.get(i).get_name() + " " + temp.get(i).get_availablity());
-//			}
-			
+			Match.pickTeamCapn(AutomatedGrouping.number_of_groups);
+
 			} catch (IOException e) {
 			e.printStackTrace();
 		}
