@@ -1,39 +1,39 @@
 import java.util.List;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
 
 public class Match {
 	private static List<Person> leastMatched;
 	
 
 	public static void availablitySort(List<Person> inputList){
-		inputList.sort(new Person());
+		Collections.sort(inputList, new Person());
 		leastMatched = new ArrayList<Person>(inputList); 
 	}
 	public static void matching(List<Person> pplList){
-		//for(dint i = 0; i < pplList; i++){
+		//for(dint i = 0; i < pplList.; i++){
 		//pplList[0]
 		//}
-		
 	}
+
 	public static void pickTeamCapn(int numOfTeam){
 		Person[] temp = new Person[numOfTeam];
+		Person[] te = new Person[numOfTeam];
 		for(int i = 0; i < numOfTeam; i++){
 			Team team = new Team();
 			temp[i] = leastMatched.get(i);
-			team.set_teamCapn(leastMatched.get(i));
+			team.set_teamCapn(temp[i]);
 
-			System.out.print(leastMatched.get(i).get_name());
+			//System.out.println(temp[i].get_name());
+			//System.out.println(temp[i]);
 //			for(Person a: leastMatched){// printing the sorted list of ages
 //				System.out.print(a.get_name() +"  : "+ a.get_totalAvailablity() + ", ");
 //			}
-
+			te = team.get_members();
+			System.out.println(te[1].get_name());
 //			leastMatched.sort(new Person());
-
+			//leastMatched.remove(temp[i].get_totalAvailablity());
+			//System.out.println(temp[i]);
 		}
 	}
 		//
@@ -53,16 +53,24 @@ public class Match {
 		list.add(new Person("Talaba", 99));
 
 		availablitySort(list);
-		for(int i = 0; i < 6; i++){// printing the sorted list of ages
-			System.out.println("ehhh");
-			System.out.print(leastMatched.get(i).get_name() +"  : "+ leastMatched.get(i).get_totalAvailablity() + ", ");
-		}
+//		for(Person a: leastMatched){   // printing the sorted list of ages
+//	         System.out.print(a.get_name() +"  : "+ a.get_totalAvailablity() + ", \n");
+//	   }
+		
 		pickTeamCapn(3);
-
-		availablitySort(list);
-		 for(Person a: list){   // printing the sorted list of ages
-	         System.out.print(a.get_name() +"  : "+ a.get_totalAvailablity() + ", ");
-	   }
+//		for(Person a: leastMatched){   // printing the sorted list of ages
+//	         System.out.print(a.get_name() +"  : "+ a.get_totalAvailablity() + ", \n");
+//	   }
+//		for(int i = 0; i < 6; i++){// printing the sorted list of ages
+//			System.out.println("ehhh");
+//			System.out.print(leastMatched.get(i).get_name() +"  : "+ leastMatched.get(i).get_totalAvailablity() + ", ");
+//		}
+//		pickTeamCapn(3);
+//
+//		availablitySort(list);
+//		 for(Person a: leastMatched){   // printing the sorted list of ages
+//	         System.out.print(a.get_name() +"  : "+ a.get_totalAvailablity() + ", \n");
+//	   }
 
 	}
 }
