@@ -9,13 +9,6 @@ public class Person implements Comparator<Person>, Comparable<Person>{
 	private Integer totalAvailability;
 	private HashMap<String, Integer> availabilityMatch;
 	private String languages;
-
-//	Uncomment for testing availabilitySort
-//	Person(){}
-//	Person(String n, int a){
-//		name = n;
-//		totalavailability = a;
-//	}
 	
 	public void set_name(String new_name){
 		this.name = new_name;
