@@ -4,6 +4,12 @@ public class Classroom {
 	private List<Person> roster;
 	private List<Team> potenTeam;
 	private List<Team> finalTeam;
+
+	Classroom(){}
+	
+	Classroom(List<Team> input){
+		input = potenTeam;
+	}
 	
 	public void set_roster(List<Person> new_roster){
 		//sets every person of the team

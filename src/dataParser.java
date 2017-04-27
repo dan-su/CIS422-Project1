@@ -49,11 +49,12 @@ public class dataParser {
 			room.set_roster(temp);
 			
 			Match.availablitySort(temp);
-			Match.pickTeamCapn(5);
-			System.out.printf("End!! Count of ppl: %d", temp.size());
-//			for(Person tp : temp){
-//				System.out.println(tp.get_name());
-//				System.out.println(tp.get_totalAvailablity());
+			Match.pickTeamCapn(AutomatedGrouping.number_of_groups);
+			Match.assemeblyTeam();
+			System.out.printf("End!! Count of ppl: %d\n", temp.size());
+//			for(Person d : temp){
+//				System.out.println(d.get_name() +" "+ d.get_lastName());
+//				System.out.println(d.get_totalAvailablity());
 //			}
 			} catch (IOException e) {
 			e.printStackTrace();

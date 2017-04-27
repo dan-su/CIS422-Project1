@@ -1,80 +1,92 @@
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Match {
 	private static List<Person> leastMatched;
+	private static List<Person> teamCapn;
+	private static List<Team> suggestedT;
 
 	public static void availablitySort(List<Person> inputList){
 		Collections.sort(inputList, new Person());
 		leastMatched = new ArrayList<Person>(inputList); 
-	}
-	public static void matching(){
-		//for(dint i = 0; i < pplList.; i++){
-		//pplList[0]
-		//}
-		Set<String> intersection = new HashSet<String>();
-		//List<Integer> c = new ArrayList<Integer> (a.size() > b.size() ?a.size():b.size());
-		c.addAll(a);
-		c.retainAll(b);
-		
+		matching();
 	}
 
+	public static void matching(){
+		Person p0 = null;
+		Person p1 = null;
+		TreeSet<String> c = null;
+		Set<String> a = null;
+		Set<String> b = null;
+		Integer count = 0;
+		HashMap<String, Integer> matchTo = new HashMap<String, Integer>();
+
+		for(int i = 0; i < leastMatched.size(); i++){
+			p0 = leastMatched.get(i);
+			System.out.printf("------------------%s %s\n",  p0.get_name(), p0.get_lastName());
+			for(int j = 1; j < leastMatched.size()-1; j++){
+				p1 = leastMatched.get(j);
+
+				for(int k = 0; k < p1.get_availablity().size(); k++){
+					a = new TreeSet<String>();
+					a.addAll(Arrays.asList(p0.get_availablity().get(k)));
+					b = new TreeSet<String>();
+					b.addAll(Arrays.asList(p1.get_availablity().get(k)));
+
+					c = new TreeSet<String> (a);
+					c.retainAll(b);
+
+					if(c.isEmpty() || c.contains("No")){
+						//						System.out.println("no matches");
+					}else{
+						//						System.out.printf("matches %d\n", c.size());
+						//						System.out.println(c);
+						count += c.size();
+					}
+				}
+				matchTo.put(p1.get_name(),count);
+				p0.set_availablityMatch(matchTo);
+				matchTo.put(p0.get_name(),count);
+				p1.set_availablityMatch(matchTo);
+				count = 0;
+			}
+			leastMatched.remove(p0);
+		}
+	}
+
+	public static List<Team> assemeblyTeam() {
+		
+		for(int j = 0; j < AutomatedGrouping.number_of_groups; j++){
+			leastMatched.remove(teamCapn.get(j));
+		}
+		
+		return suggestedT;
+		
+	}
 	public static void pickTeamCapn(int numOfTeam){
 		Person[] temp = new Person[numOfTeam];
-		//Person[] te = new Person[numOfTeam];
+		
 		for(int i = 0; i < numOfTeam; i++){
 			Team team = new Team();
 			temp[i] = leastMatched.get(i);
 			team.set_teamCapn(temp[i]);
-			System.out.printf("%s, %s\n", temp[i].get_name(), temp[i].get_lastName());
-			System.out.println(temp[i].get_totalAvailablity());
-
+			suggestedT.add(team);
+			//System.out.printf("%s, %s\n", temp[i].get_name(), temp[i].get_lastName());
+			//System.out.println(temp[i].get_totalAvailablity());
 		}
-		for(int j = 0; j < numOfTeam; j++){
-		leastMatched.remove(temp[j]);
-		}
-		for(Person tp : leastMatched){
-			System.out.printf("%s, %s, %d\n", tp.get_name(), tp.get_lastName(), tp.get_totalAvailablity());
-		}
-	}
+	
+		teamCapn = new ArrayList<Person>(leastMatched);
 
-
-//	uncomment for testing
-	public static void main(String[] args) {
-//		List<Person> list = new ArrayList<Person>();
-//
-//		System.out.println("start");
-//
-//		list.add(new Person("Bob", 25));
-//		list.add(new Person("Freddy", 50));
-//		list.add(new Person("Meg", 4));
-//		list.add(new Person("Peg", 8));
-//		list.add(new Person("Dylan", 3));
-//
-//		list.add(new Person("Talaba", 99));
-
-//		availablitySort(list);
-//		for(Person a: leastMatched){   // printing the sorted list of ages
-//	         System.out.print(a.get_name() +"  : "+ a.get_totalAvailablity() + ", \n");
-//	   }
-		
-//		pickTeamCapn(3);
-//		for(Person a: leastMatched){   // printing the sorted list of ages
-//	         System.out.print(a.get_name() +"  : "+ a.get_totalAvailablity() + ", \n");
-//	   }
-//		for(int i = 0; i < 6; i++){// printing the sorted list of ages
-//			System.out.println("ehhh");
-//			System.out.print(leastMatched.get(i).get_name() +"  : "+ leastMatched.get(i).get_totalAvailablity() + ", ");
+//		for(Person tp : leastMatched){
+//			System.out.printf("%s, %s, %d\n", tp.get_name(), tp.get_lastName(), tp.get_totalAvailablity());
 //		}
-//		pickTeamCapn(3);
-//
-//		availablitySort(list);
-//		 for(Person a: leastMatched){   // printing the sorted list of ages
-//	         System.out.print(a.get_name() +"  : "+ a.get_totalAvailablity() + ", \n");
-//	   }
-
 	}
+
 }
