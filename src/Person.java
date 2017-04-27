@@ -5,16 +5,16 @@ import java.util.List;
 public class Person implements Comparator<Person>, Comparable<Person>{
 	private String name;
 	private String lastName;
-	private List<String[]> availablity;
-	private Integer totalAvailablity;
-	private HashMap<String, Integer> availablityMatch;
+	private List<String[]> availability;
+	private Integer totalAvailability;
+	private HashMap<String, Integer> availabilityMatch;
 	private String languages;
 
-//	Uncomment for testing availablitySort
+//	Uncomment for testing availabilitySort
 //	Person(){}
 //	Person(String n, int a){
 //		name = n;
-//		totalAvailablity = a;
+//		totalavailability = a;
 //	}
 	
 	public void set_name(String new_name){
@@ -29,23 +29,23 @@ public class Person implements Comparator<Person>, Comparable<Person>{
 	public String get_lastName(){
 		return lastName;
 	}
-	public void set_availablity(List<String[]> new_availablity){
-		this.availablity = new_availablity;
+	public void set_availability(List<String[]> new_availability){
+		this.availability = new_availability;
 	}
-	public List<String[]> get_availablity(){
-		return availablity;
+	public List<String[]> get_availability(){
+		return availability;
 	}
-	public void set_availablityMatch(HashMap<String, Integer> new_availablityMatch){
-		this.availablityMatch = new_availablityMatch;
+	public void set_availabilityMatch(HashMap<String, Integer> new_availabilityMatch){
+		this.availabilityMatch = new_availabilityMatch;
 	}
-	public HashMap<String, Integer> get_availablityMatch(){
-		return availablityMatch;
+	public HashMap<String, Integer> get_availabilityMatch(){
+		return availabilityMatch;
 	}
-	public void set_totalAvailablity(Integer new_totalAvailablity){
-		this.totalAvailablity = new_totalAvailablity;
+	public void set_totalAvailability(Integer new_totalAvailability){
+		this.totalAvailability = new_totalAvailability;
 	}
-	public Integer get_totalAvailablity(){
-		return totalAvailablity;
+	public Integer get_totalAvailability(){
+		return totalAvailability;
 	}
 	public void set_languages(String new_language){
 		this.languages = new_language;
@@ -61,6 +61,6 @@ public class Person implements Comparator<Person>, Comparable<Person>{
 	@Override
 	public int compare(Person p0, Person p1) {
 		// TODO Auto-generated method stub
-		return Integer.compare(p0.get_totalAvailablity(), p1.get_totalAvailablity());
+		return Integer.compare(p0.get_totalAvailability(), p1.get_totalAvailability());
 	}
 }

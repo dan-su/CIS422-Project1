@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 public class dataParser {
-	//takes in first name, last name, languages,(totalAvailablity for m-f),  
+	//takes in first name, last name, languages,(total Availability for m-f),  
 	
 	public static void CSV_parser(String filePath) throws FileNotFoundException{
 		
@@ -24,7 +24,6 @@ public class dataParser {
 				student.set_name(item[1]);
 				student.set_lastName(item[2]);
 				student.set_languages(item[3]);
-				//System.out.println(item[1]);
 				
 				int counter = 0;
 				String[] days = null;
@@ -37,44 +36,38 @@ public class dataParser {
 					for(int j = 0; j < days.length; j++){
 						days[j] = days[j].substring(0, 2);
 					}
-					//System.out.println(Arrays.deepToString(days));
+
 					weekTime.add(days);
 				}
-				//System.out.println(counter);
-				student.set_totalAvailablity(counter);
-				student.set_availablity(weekTime);
+				student.set_totalAvailability(counter);
+				student.set_availability(weekTime);
 				temp.add(student);
 			}
 			reader.close();
 			room.set_roster(temp);
 			
-			Match.availablitySort(temp);
-			Match.pickTeamCapn(5);
-			//AutomatedGrouping.number_of_groups
+			Match.availabilitySort(temp);
+			Match.pickTeamCapn(AutomatedGrouping.number_of_groups);
 			Match.assemeblyTeam();
-			System.out.printf("End!! Count of ppl: %d\n", temp.size());
-//			for(Person d : temp){
-//				System.out.println(d.get_name() +" "+ d.get_lastName());
-//				System.out.println(d.get_totalAvailablity());
-//			}
+
 			} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
-//	Uncomment for testing
-	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
-		System.out.println("Enter file :");
-		String inputFile = input.next(); 
-		
-		try {
-			CSV_parser(inputFile);
-
-		} catch (FileNotFoundException e) {	
-			e.printStackTrace();
-		}
-		input.close();
-	}
-	
 }
+//	Uncomment for testing
+//	public static void main(String[] args) {
+//		Scanner input = new Scanner(System.in);
+//		System.out.println("Enter file :");
+//		String inputFile = input.next(); 
+//		
+//		try {
+//			CSV_parser(inputFile);
+//
+//		} catch (FileNotFoundException e) {	
+//			e.printStackTrace();
+//		}
+//		input.close();
+//	}
+//	
+//}
