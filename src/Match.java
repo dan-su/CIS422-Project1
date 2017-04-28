@@ -66,7 +66,7 @@ public class Match {
 		}
 	}
 
-	public static List<Team> assemeblyTeam() {	
+	public static List<Team> assembleTeam() {	
 		for(int j = 0; j < AutomatedGrouping.number_of_groups; j++){
 			leastMatched.remove(teamCapn.get(j));
 		}
@@ -77,7 +77,6 @@ public class Match {
 				//gets the people whose time match with the TeamCapn more than 2 timeslots a week
 				if(suggestedT.get(l).get_teamCapn().get_availabilityMatch().get(leastMatched.get(k).get_name()) >= 1){
 					tmpMemb[k] = leastMatched.get(k);
-					System.out.println(leastMatched.get(k).get_name());
 					leastMatched.remove(leastMatched.get(k));
 				}
 			}
@@ -85,6 +84,7 @@ public class Match {
 			suggestedT.get(l).set_members(tmpMemb);
 			suggestedT.add(suggestedT.get(l));
 		}
+		
 		return suggestedT;
 	}
 	

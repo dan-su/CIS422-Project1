@@ -2,11 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileReader;
-
+import java.io.FileNotFoundException;
 import javax.swing.JFrame;
 
-import com.opencsv.CSVReader;
 
 /*
  * Talaba Pogrebinsky
@@ -33,7 +31,7 @@ public class AutomatedGrouping {
 		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//frame2.setLayout(new GridLayout(0, 1));
 		JPanel panel2 = new JPanel();
-		panel2.setBackground(Color.BLACK);
+		panel2.setBackground(Color.GRAY);
 
 		frame2.getContentPane().add(panel2);
 		//frame2.setLayout(new GridLayout(0, 1));
@@ -46,18 +44,18 @@ public class AutomatedGrouping {
              for (int j = 0 ;j < size_of_groups; j++)
              {     
                 
-                     String name = "samples";
+                     String name = "sample";
+                    	
                      labels[i] = new JLabel();
                      labels[i].setBackground(Color.white);
                      labels[i].setOpaque(true); 
-                     labels[i].setBounds(((j*100)+200),((i*40)+200),80,20);
+                     labels[i].setBounds(((j*100)+75),((i*40)+75),80,20);
                      if(i == 0){
                     	 name = "Group:" + " " + String.valueOf(count);
                     	 count++;
                      }
                      labels[i].setText(name);                        
                      panel2.add(labels[i]);
-
              
           }
 		 }
@@ -198,16 +196,18 @@ public class AutomatedGrouping {
 	}
 	// event handler methods
 	public static void import_button_pressed(String input){
-		try{
-			//dataParser.CSV_parser(input);
-			CSVReader reader = new CSVReader(new FileReader(input), ',', '"', 1);
-			System.out.println(reader.readAll());
-			reader.close();
-			import_groups = true;
-			System.out.println("hello moto");
-		}catch(Exception e){
-			System.out.println("file parsing problem");
+		//parse csv file
+		try {
+			dataParser.CSV_parser(input);
+			import_groups= true;
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+			
+		
 	}
 
 	public static void exit_button_pressed(){
@@ -215,11 +215,8 @@ public class AutomatedGrouping {
 	}
 
 	public static void get_groups_button_pressed(int class_size, int group_size){
-		// retrieve all data from file
-		//we need a if statement if there is a remainder then show user the breakdown of
-		// the group size and the group with the leftovers
-		// ex size = 45 teamsize = 3, we will get 15 groups of 3
-		// ex size = 46 teamsize =3, we will get 14 groups of 3 and 1 group 4
+		// send data , divide groups
+		
 		number_of_groups = 0;
 		remainder = 0;
 		num_of_students = 0;
@@ -227,9 +224,13 @@ public class AutomatedGrouping {
 		int mod_remain = class_size % group_size;
 		if(mod_remain > 0){
 			remainder = mod_remain;
+		}else{
+			remainder = 0;
 		}
+		
 		number_of_groups = (class_size/group_size);
 		num_of_students = class_size;
+		
 	}
 	public static void view_button_pressed(Frame frame){
 		frame.setVisible(false);

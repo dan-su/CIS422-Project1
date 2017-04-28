@@ -47,7 +47,11 @@ public class dataParser {
 			
 			Match.availabilitySort(temp);
 			Match.pickTeamCapn(AutomatedGrouping.number_of_groups);
-			Match.assemeblyTeam();
+			Match.assembleTeam();
+			
+		
+		
+			
 
 			} catch (IOException e) {
 			e.printStackTrace();
